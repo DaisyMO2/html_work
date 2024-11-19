@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            margin: 20px 0;
+        }
+        input[type="text"], input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #4cae4c;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gallery img {
+            width: calc(33.333% - 10px);
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #35424a;
+            color: white;
+            margin-top: 20px;
+        }
+        .message {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #e7f3fe;
+            color: #31708f;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to My Interactive Web Page</h1>
+    <nav>
+        <a href="#form">Contact</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section id="form">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="responseMessage" class="message" style="display: none;"></div>
+    </section>
+
+    <section id="gallery">
+        <h2>Image Gallery</h2>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/300" alt="Placeholder Image 1">
+            <img src="https://via.placeholder.com/300" alt="Placeholder Image 2">
+            <img src="https://via.placeholder.com/300" alt="Placeholder Image 3">
+            <img src="https://via.placeholder.com/300" alt="Placeholder Image 4">
+            <img src="https://via.placeholder.com/300" alt="Placeholder Image 5">
+            <img src="https://via.placeholder.com/300" alt="Placeholder Image 6">
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About This Page</h2>
+        <p>This page was created to demonstrate a simple, interactive web application. You can submit your contact information, and explore an image gallery.</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 My Interactive Web Page</p>
+</footer>
+
+<script>
+    document.getElementById('contactForm').onsubmit = function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        
+        document.getElementById('responseMessage').style.display = 'block';
+        document.getElementById('responseMessage').innerText = `Thank you, ${name}! We will contact you at ${email}.`;
+        
+        document.getElementById('contactForm').reset();
+    };
+</script>
+
+</body>
+</html>
